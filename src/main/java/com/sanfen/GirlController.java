@@ -15,6 +15,8 @@ public class GirlController {
     @Autowired
     private GirlRepository girlRepository;
 
+    @Autowired
+    private GirlService girlService;
 
     @GetMapping(value = "/")
     public List<Girl> girlList(){
@@ -31,9 +33,9 @@ public class GirlController {
     }
 
 
-    @GetMapping(value = "/{id}")
-    public Girl getGirlById(@PathVariable("id") Integer id){
-        return girlRepository.getOne(id);
+    @GetMapping(value = "/id/{id}")
+    public Girl getGirlFindOne(@PathVariable("id") Integer id){
+        return girlRepository.findById(id);
     }
 
 
@@ -60,7 +62,17 @@ public class GirlController {
         return "success";
     }
 
+    @GetMapping(value = "/age/{age}")
+    public List<Girl> girlsFindByAge(@PathVariable("age") Integer age) {
+        return girlRepository.findByAge(age);
+    }
 
+
+
+    @PostMapping(value = "/two")
+    public void girlsAddTwo(){
+        girlService.insertTwo();
+    }
 
 
 }

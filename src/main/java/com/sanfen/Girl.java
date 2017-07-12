@@ -9,6 +9,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Girl {
+
     @Id
     @GeneratedValue
     private Integer id;
