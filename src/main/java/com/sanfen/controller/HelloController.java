@@ -1,5 +1,6 @@
-package com.sanfen;
+package com.sanfen.controller;
 
+import com.sanfen.properties.GirlProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,5 +1,6 @@
-package com.sanfen;
+package com.sanfen.repository;
 
+import com.sanfen.domain.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

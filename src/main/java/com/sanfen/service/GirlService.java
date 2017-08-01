@@ -1,5 +1,7 @@
-package com.sanfen;
+package com.sanfen.service;
 
+import com.sanfen.repository.GirlRepository;
+import com.sanfen.domain.Girl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

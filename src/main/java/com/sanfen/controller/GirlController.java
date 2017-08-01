@@ -1,8 +1,13 @@
-package com.sanfen;
+package com.sanfen.controller;
 
+import com.sanfen.repository.GirlRepository;
+import com.sanfen.domain.Girl;
+import com.sanfen.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -24,11 +29,11 @@ public class GirlController {
     }
 
     @PostMapping(value = "/")
-    public Girl girlAdd(@RequestParam(value = "cupSize") String cupSize,
-                        @RequestParam(value = "age") Integer age){
-        Girl girl = new Girl();
-        girl.setCupSize(cupSize);
-        girl.setAge(age);
+    public Girl girlAdd(@Valid Girl girl, BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            System.out.println(bindingResult.getFieldError().getDefaultMessage());
+            return null;
+        }
         return girlRepository.save(girl);
     }
 

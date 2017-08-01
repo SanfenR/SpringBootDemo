@@ -1,8 +1,10 @@
-package com.sanfen;
+package com.sanfen.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by fensan on 2017/7/12.
@@ -13,7 +15,13 @@ public class Girl {
     @Id
     @GeneratedValue
     private Integer id;
+
+
+    @NotNull
     private String cupSize;
+
+    @Min(value = 18, message = "未成年")
+    @NotNull
     private Integer age;
 
     public Girl() {
